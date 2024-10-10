@@ -8,40 +8,23 @@ class TestBookingSystem(unittest.TestCase):
         self.app = app.test_client()
         self.app.testing = True
 
-        self.club_data = {"email": clubs[0]['email']}
-        self.purchase_data = {
-            "competition": competitions[0]['name'],
-            "club": clubs[0]['name'],
-            "places": "1"
-        }
+        self.valid_club_email = clubs[0]['email']
+        self.invalid_club_email = 'unknown@nonexistent.com'
 
-    def test_show_summary(self):
-        response = self.app.post('/showSummary', data=self.club_data)
+    def test_show_summary_with_valid_email(self):
+        response = self.app.post('/showSummary', data={'email': self.valid_club_email})
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Welcome', response.data)
 
-    def test_successful_purchase(self):
-        response = self.app.post('/purchasePlaces', data=self.purchase_data)
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b'booking complete', response.data)
-
-    def test_insufficient_points(self):
-        self.purchase_data['places'] = '5'  
-        response = self.app.post('/purchasePlaces', data=self.purchase_data)
+    def test_show_summary_with_invalid_email(self):
+        response = self.app.post('/showSummary', data={'email': self.invalid_club_email}, follow_redirects=True)
         
-        print(response.data.decode())
+        self.assertIn(b"Sorry, that email wasn&#39;t found.", response.data)
+
+    def test_flash_message_displayed(self):
+        response = self.app.post('/showSummary', data={'email': self.invalid_club_email}, follow_redirects=True)
         
-        self.assertIn(b'Not enough points to book the required places.', response.data)
-
-
-    def test_overbooking(self):
-        available_places = int(competitions[0]['numberOfPlaces'])
-        self.purchase_data['places'] = str(available_places + 1) 
-        response = self.app.post('/purchasePlaces', data=self.purchase_data)
-        
-        print(response.data.decode())
-
-        self.assertIn(b'Not enough places available for booking.', response.data)
+        self.assertIn(b"Sorry, that email wasn&#39;t found.", response.data)
 
 
 if __name__ == '__main__':

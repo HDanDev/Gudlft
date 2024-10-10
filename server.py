@@ -27,10 +27,17 @@ logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s 
 def index():
     return render_template('index.html')
 
-@app.route('/showSummary',methods=['POST'])
+@app.route('/showSummary', methods=['POST'])
 def showSummary():
-    club = [club for club in clubs if club['email'] == request.form['email']][0]
-    return render_template('welcome.html',club=club,competitions=competitions)
+    email = request.form['email']
+    club = next((club for club in clubs if club['email'] == email), None)
+
+    if club:
+        return render_template('welcome.html', club=club, competitions=competitions)
+    else:
+        flash("Sorry, that email wasn't found.")
+        logging.warning(f"Login attempt with unknown email: {email}")
+        return redirect(url_for('index'))
 
 
 @app.route('/book/<competition>/<club>')
