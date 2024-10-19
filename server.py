@@ -1,4 +1,5 @@
 import json
+import logging
 from flask import Flask,render_template,request,redirect,flash,url_for
 
 
@@ -20,15 +21,24 @@ app.secret_key = 'something_special'
 competitions = loadCompetitions()
 clubs = loadClubs()
 
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/showSummary',methods=['POST'])
+@app.route('/showSummary', methods=['POST'])
 def showSummary():
-    club = [club for club in clubs if club['email'] == request.form['email']][0]
+    email = request.form['email']
+    club = next((club for club in clubs if club['email'] == email), None)
     other_clubs = [c for c in clubs if c != club]
-    return render_template('welcome.html',club=club,competitions=competitions,clubs=other_clubs)
+    
+    if club:
+        return render_template('welcome.html', club=club, competitions=competitions,clubs=other_clubs)
+    else:
+        flash("Sorry, that email wasn't found.")
+        logging.warning(f"Login attempt with unknown email: {email}")
+        return redirect(url_for('index'))
 
 
 @app.route('/book/<competition>/<club>')

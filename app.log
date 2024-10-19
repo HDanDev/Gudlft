@@ -1,0 +1,78 @@
+2024-10-04 17:37:56,886 Club Simply Lift attempted to book 100 places, but only 25 are available.
+2024-10-04 17:37:56,970 Club Simply Lift attempted to book 26 places, but only 25 are available.
+2024-10-04 17:37:56,974 Club Simply Lift booked 1 places in Spring Festival. Points used: 3
+2024-10-04 17:41:06,720 Club Simply Lift attempted to book 100 places, but only 25 are available.
+2024-10-04 17:41:06,734 Club Simply Lift attempted to book 26 places, but only 25 are available.
+2024-10-04 17:41:06,736 Club Simply Lift booked 1 places in Spring Festival. Points used: 3
+2024-10-04 17:41:42,029 Club Simply Lift attempted to book 100 places, but only 25 are available.
+2024-10-04 17:41:42,042 Club Simply Lift attempted to book 26 places, but only 25 are available.
+2024-10-04 17:41:42,045 Club Simply Lift booked 1 places in Spring Festival. Points used: 3
+2024-10-04 17:42:35,515 Club Simply Lift attempted to book 100 places, but only 25 are available.
+2024-10-04 17:42:35,528 Club Simply Lift attempted to book 26 places, but only 25 are available.
+2024-10-04 17:42:35,530 Club Simply Lift booked 1 places in Spring Festival. Points used: 3
+2024-10-04 17:49:50,688 Club Simply Lift attempted to book 26 places, but only 25 are available.
+2024-10-04 17:49:50,725 Club Simply Lift booked 1 places in Spring Festival. Points used: 3
+2024-10-04 17:50:21,655 Club Simply Lift attempted to book 100 places, but only 25 are available.
+2024-10-04 17:50:21,711 Club Simply Lift attempted to book 26 places, but only 25 are available.
+2024-10-04 17:50:21,714 Club Simply Lift booked 1 places in Spring Festival. Points used: 3
+2024-10-04 17:54:52,118 Club Simply Lift attempted to book 100 places, but only has 13 points.
+2024-10-04 17:54:52,137 Club Simply Lift attempted to book 26 places, but only has 13 points.
+2024-10-04 17:54:52,141 Club Simply Lift booked 1 places in Spring Festival. Points used: 3
+2024-10-04 18:01:06,159 Club Simply Lift attempted to book 5 places, but only has 13 points.
+2024-10-04 18:01:06,181 Club Simply Lift attempted to book 26 places, but only 25 are available.
+2024-10-04 18:01:06,248 Club Simply Lift booked 1 places in Spring Festival. Points used: 3
+2024-10-09 23:14:19,498  * Restarting with stat
+2024-10-09 23:14:19,874  * Debugger is active!
+2024-10-09 23:14:19,883  * Debugger PIN: 125-285-755
+2024-10-09 23:14:19,893  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2024-10-09 23:17:02,609 127.0.0.1 - - [09/Oct/2024 23:17:02] "[37mGET / HTTP/1.1[0m" 200 -
+2024-10-09 23:17:02,921 127.0.0.1 - - [09/Oct/2024 23:17:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-10-09 23:17:12,636 127.0.0.1 - - [09/Oct/2024 23:17:12] "[35m[1mPOST /showSummary HTTP/1.1[0m" 500 -
+2024-10-09 23:17:12,923 127.0.0.1 - - [09/Oct/2024 23:17:12] "[37mGET /showSummary?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+2024-10-09 23:17:12,924 127.0.0.1 - - [09/Oct/2024 23:17:12] "[37mGET /showSummary?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+2024-10-09 23:17:12,930 127.0.0.1 - - [09/Oct/2024 23:17:12] "[37mGET /showSummary?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+2024-10-09 23:17:13,016 127.0.0.1 - - [09/Oct/2024 23:17:13] "[37mGET /showSummary?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+2024-10-09 23:17:13,034 127.0.0.1 - - [09/Oct/2024 23:17:13] "[37mGET /showSummary?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+2024-10-09 23:17:13,043 127.0.0.1 - - [09/Oct/2024 23:17:13] "[37mGET /showSummary?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+2024-10-09 23:18:29,625 127.0.0.1 - - [09/Oct/2024 23:18:29] "[37mPOST /showSummary HTTP/1.1[0m" 200 -
+2024-10-09 23:18:41,726 127.0.0.1 - - [09/Oct/2024 23:18:41] "[37mGET /book/Spring%20Festival/Simply%20Lift HTTP/1.1[0m" 200 -
+2024-10-09 23:18:49,727 Club Simply Lift booked 3 places in Spring Festival. Points used: 9
+2024-10-09 23:18:49,728 127.0.0.1 - - [09/Oct/2024 23:18:49] "[37mPOST /purchasePlaces HTTP/1.1[0m" 200 -
+2024-10-09 23:19:19,946 127.0.0.1 - - [09/Oct/2024 23:19:19] "[37mGET /book/Fall%20Classic/Simply%20Lift HTTP/1.1[0m" 200 -
+2024-10-09 23:19:23,624 Club Simply Lift attempted to book 2 places, but only has 4 points.
+2024-10-09 23:19:23,625 127.0.0.1 - - [09/Oct/2024 23:19:23] "[37mPOST /purchasePlaces HTTP/1.1[0m" 200 -
+2024-10-09 23:19:49,752 127.0.0.1 - - [09/Oct/2024 23:19:49] "[37mPOST /showSummary HTTP/1.1[0m" 200 -
+2024-10-09 23:20:40,349  * Detected change in 'Z:\\webprojects\\Gudlft\\server.py', reloading
+2024-10-09 23:20:40,385  * Restarting with stat
+2024-10-09 23:20:40,838  * Debugger PIN: 125-285-755
+2024-10-09 23:20:40,871  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2024-10-09 23:21:08,877 127.0.0.1 - - [09/Oct/2024 23:21:08] "[37mPOST /showSummary HTTP/1.1[0m" 200 -
+2024-10-09 23:21:44,601 127.0.0.1 - - [09/Oct/2024 23:21:44] "[37mGET /book/Fall%20Classic/Simply%20Lift HTTP/1.1[0m" 200 -
+2024-10-09 23:21:53,489 Club Simply Lift booked 2 places in Fall Classic. Points used: 2
+2024-10-09 23:21:53,490 127.0.0.1 - - [09/Oct/2024 23:21:53] "[37mPOST /purchasePlaces HTTP/1.1[0m" 200 -
+2024-10-09 23:22:01,357 127.0.0.1 - - [09/Oct/2024 23:22:01] "[37mGET /book/Spring%20Festival/Simply%20Lift HTTP/1.1[0m" 200 -
+2024-10-09 23:22:04,894 Club Simply Lift booked 4 places in Spring Festival. Points used: 4
+2024-10-09 23:22:04,895 127.0.0.1 - - [09/Oct/2024 23:22:04] "[37mPOST /purchasePlaces HTTP/1.1[0m" 200 -
+2024-10-09 23:36:08,577  * Debugger is active!
+2024-10-09 23:36:08,584  * Debugger PIN: 125-285-755
+2024-10-09 23:36:08,595  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2024-10-09 23:36:17,207 Club Simply Lift booked 4 places in Spring Festival. Points used: 4
+2024-10-09 23:36:17,217 127.0.0.1 - - [09/Oct/2024 23:36:17] "[37mPOST /purchasePlaces HTTP/1.1[0m" 200 -
+2024-10-09 23:36:17,245 127.0.0.1 - - [09/Oct/2024 23:36:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-10-09 23:36:19,196 127.0.0.1 - - [09/Oct/2024 23:36:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-10-09 23:36:19,218 127.0.0.1 - - [09/Oct/2024 23:36:19] "[37mGET / HTTP/1.1[0m" 200 -
+2024-10-09 23:36:24,275 Login attempt with unknown email: dhan_nay@hotmail.com
+2024-10-09 23:36:24,276 127.0.0.1 - - [09/Oct/2024 23:36:24] "[32mPOST /showSummary HTTP/1.1[0m" 302 -
+2024-10-09 23:36:24,283 127.0.0.1 - - [09/Oct/2024 23:36:24] "[37mGET / HTTP/1.1[0m" 200 -
+2024-10-09 23:36:26,583 Login attempt with unknown email: 
+2024-10-09 23:36:26,584 127.0.0.1 - - [09/Oct/2024 23:36:26] "[32mPOST /showSummary HTTP/1.1[0m" 302 -
+2024-10-09 23:36:26,591 127.0.0.1 - - [09/Oct/2024 23:36:26] "[37mGET / HTTP/1.1[0m" 200 -
+2024-10-09 23:36:26,932 Login attempt with unknown email: 
+2024-10-09 23:36:26,933 127.0.0.1 - - [09/Oct/2024 23:36:26] "[32mPOST /showSummary HTTP/1.1[0m" 302 -
+2024-10-09 23:36:26,937 127.0.0.1 - - [09/Oct/2024 23:36:26] "[37mGET / HTTP/1.1[0m" 200 -
+2024-10-09 23:38:15,327 Login attempt with unknown email: unknown@nonexistent.com
+2024-10-09 23:38:15,337 Login attempt with unknown email: unknown@nonexistent.com
+2024-10-09 23:40:03,500 Login attempt with unknown email: unknown@nonexistent.com
+2024-10-09 23:40:03,508 Login attempt with unknown email: unknown@nonexistent.com
+2024-10-11 15:29:24,814 Login attempt with unknown email: unknown@nonexistent.com
+2024-10-11 15:29:24,841 Login attempt with unknown email: unknown@nonexistent.com
