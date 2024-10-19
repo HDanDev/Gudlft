@@ -31,9 +31,10 @@ def index():
 def showSummary():
     email = request.form['email']
     club = next((club for club in clubs if club['email'] == email), None)
-
+    other_clubs = [c for c in clubs if c != club]
+    
     if club:
-        return render_template('welcome.html', club=club, competitions=competitions)
+        return render_template('welcome.html', club=club, competitions=competitions,clubs=other_clubs)
     else:
         flash("Sorry, that email wasn't found.")
         logging.warning(f"Login attempt with unknown email: {email}")
