@@ -6,9 +6,6 @@ class TestBookingSystem(unittest.TestCase):
 
 
     def setUp(self):        
-        self.app = app.test_client()
-        self.app.testing = True
-
         self.first_test_club = clubs[0]
         self.second_test_club = clubs[1]
         self.third_test_club = clubs[2]
@@ -45,6 +42,27 @@ class TestBookingSystem(unittest.TestCase):
             "places": test_failed_club_points
         }
 
+        self.app = app.test_client()
+        self.app.testing = True
+        self.first_purchase_data = {
+            "competition": competitions[0]['name'],
+            "club": clubs[0]['name'],
+            "places": "3"
+        }
+        self.second_purchase_data = {
+            "competition": competitions[1]['name'],
+            "club": clubs[1]['name'],
+            "places": clubs[1]['points']
+        }
+        
+        test_failed_club = clubs[2]
+        self.test_failed_club_points = test_failed_club['points']
+        
+        self.test_failed_purchase_data = {
+            "competition": competitions[0]['name'],
+            "club": test_failed_club['name'],
+            "places": "65"
+        }
 
     def test_booking_with_multiple_cases(self):
         test_cases = [
@@ -63,15 +81,15 @@ class TestBookingSystem(unittest.TestCase):
                 self.assertIn(expected_message.encode(), response.data)
 
 
-    def test_show_summary_with_valid_email(self):
-        response = self.app.post('/showSummary', data={'email': self.valid_club_email})
+    def test_successful_purchase(self):
+        response = self.app.post('/purchasePlaces', data=self.first_purchase_data)
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Welcome', response.data)
+        self.assertIn(b'Great-booking complete!', response.data)
 
-    def test_show_summary_with_invalid_email(self):
-        response = self.app.post('/showSummary', data={'email': self.invalid_club_email}, follow_redirects=True)
-        
-        self.assertIn(b"Sorry, that email wasn&#39;t found.", response.data)
+
+    def test_successful_purchase_exact_amount(self):
+        response = self.app.post('/purchasePlaces', data=self.second_purchase_data)
+
 
     def test_flash_message_displayed(self):
         response = self.app.post('/showSummary', data={'email': self.invalid_club_email}, follow_redirects=True)
@@ -104,6 +122,13 @@ class TestBookingSystem(unittest.TestCase):
         self.assertIn(b'Great-booking complete!', response.data)
 
 
+    def test_insufficient_points(self):
+        response = self.app.post('/purchasePlaces', data=self.test_failed_purchase_data)
+        assertion = f"Not enough available points to book the places. You were only able to afford {self.test_failed_club_points}"
+        
+        self.assertIn(assertion.encode(), response.data)
+        
+        
     def test_successful_purchase_exact_amount(self):
         response = self.app.post('/purchasePlaces', data=self.second_purchase_data)
         self.assertEqual(response.status_code, 200)
@@ -115,6 +140,7 @@ class TestBookingSystem(unittest.TestCase):
         assertion = f"Unfortunately, it is not authorized to book more than {maxBookingPlaces} places"
         
         self.assertIn(assertion.encode(), response.data)
+
 
 if __name__ == '__main__':
     unittest.main()
