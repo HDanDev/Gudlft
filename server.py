@@ -1,6 +1,7 @@
 import json
 import logging
 from flask import Flask,render_template,request,redirect,flash,url_for
+from datetime import datetime
 
 
 def loadClubs():
@@ -21,6 +22,8 @@ app.secret_key = 'something_special'
 competitions = loadCompetitions()
 clubs = loadClubs()
 maxBookingPlaces= 12
+
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
@@ -58,7 +61,15 @@ def book(competition,club):
 @app.route('/purchasePlaces',methods=['POST'])
 def purchasePlaces():
     competition = [c for c in competitions if c['name'] == request.form['competition']][0]
+    competition_date = datetime.strptime(competition['date'], "%Y-%m-%d %H:%M:%S")
+    current_date = datetime.now()
+        
     club = [c for c in clubs if c['name'] == request.form['club']][0]
+    
+    if competition_date < current_date:
+        flash('Error: Cannot book a place on a past competition.')
+        return render_template('welcome.html', club=club, competitions=competitions)
+    
     placesRequired = int(request.form['places'])
     
 
