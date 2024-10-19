@@ -20,6 +20,9 @@ app.secret_key = 'something_special'
 
 competitions = loadCompetitions()
 clubs = loadClubs()
+maxBookingPlaces= 12
+
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
@@ -46,7 +49,7 @@ def book(competition,club):
     foundClub = [c for c in clubs if c['name'] == club][0]
     foundCompetition = [c for c in competitions if c['name'] == competition][0]
     if foundClub and foundCompetition:
-        return render_template('booking.html',club=foundClub,competition=foundCompetition)
+        return render_template('booking.html',club=foundClub,competition=foundCompetition, maxBookingPlaces=maxBookingPlaces)
     else:
         flash("Something went wrong-please try again")
         return render_template('welcome.html', club=club, competitions=competitions)
@@ -57,9 +60,15 @@ def purchasePlaces():
     competition = [c for c in competitions if c['name'] == request.form['competition']][0]
     club = [c for c in clubs if c['name'] == request.form['club']][0]
     placesRequired = int(request.form['places'])
-    competition['numberOfPlaces'] = int(competition['numberOfPlaces'])-placesRequired
-    club['points'] = int(club['points'])-placesRequired
-    flash('Great-booking complete!')
+    
+    if placesRequired <= maxBookingPlaces:
+        competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - placesRequired
+        club['points'] = int(club['points']) - placesRequired
+        flash(f'Great-booking complete!')
+        logging.info(f"Club {club['name']} booked {placesRequired} places in {competition['name']}. Points used: {placesRequired}")
+    else:    
+        flash(f"Unfortunately, it is not authorized to book more than {maxBookingPlaces} places")
+        logging.warning(f"Club attempted to book more than the allowed {maxBookingPlaces} places.")
     return render_template('welcome.html', club=club, competitions=competitions)
 
 
