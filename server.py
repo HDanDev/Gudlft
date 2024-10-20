@@ -20,9 +20,6 @@ app.secret_key = 'something_special'
 
 competitions = loadCompetitions()
 clubs = loadClubs()
-maxBookingPlaces= 12
-
-logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
@@ -32,16 +29,8 @@ def index():
 
 @app.route('/showSummary',methods=['POST'])
 def showSummary():
-    email = request.form['email']
-    club = next((club for club in clubs if club['email'] == email), None)
-    other_clubs = [c for c in clubs if c != club]
-    
-    if club:
-        return render_template('welcome.html', club=club, competitions=competitions,clubs=other_clubs)
-    else:
-        flash("Sorry, that email wasn't found.")
-        logging.warning(f"Login attempt with unknown email: {email}")
-        return redirect(url_for('index'))
+    club = [club for club in clubs if club['email'] == request.form['email']][0]
+    return render_template('welcome.html',club=club,competitions=competitions)
 
 
 @app.route('/book/<competition>/<club>')
@@ -49,7 +38,7 @@ def book(competition,club):
     foundClub = [c for c in clubs if c['name'] == club][0]
     foundCompetition = [c for c in competitions if c['name'] == competition][0]
     if foundClub and foundCompetition:
-        return render_template('booking.html',club=foundClub,competition=foundCompetition, maxBookingPlaces=maxBookingPlaces)
+        return render_template('booking.html',club=foundClub,competition=foundCompetition)
     else:
         flash("Something went wrong-please try again")
         return render_template('welcome.html', club=club, competitions=competitions)
@@ -61,22 +50,18 @@ def purchasePlaces():
     club = [c for c in clubs if c['name'] == request.form['club']][0]
     placesRequired = int(request.form['places'])
     
-
-    if placesRequired <= maxBookingPlaces:
+    if int(club['points']) >= placesRequired:
         competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - placesRequired
         club['points'] = int(club['points']) - placesRequired
         flash(f'Great-booking complete!')
         logging.info(f"Club {club['name']} booked {placesRequired} places in {competition['name']}. Points used: {placesRequired}")
-        if int(club['points']) >= placesRequired:
-        else:
-            competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - int(club['points'])
-            availablePoints = club['points']
-            club['points'] = 0        
-            flash(f"Not enough available points to book the places. You were only able to afford {availablePoints}")
-            logging.warning(f"Club {club['name']} attempted to book {placesRequired} places, but only has {club['points']} points.")
-    else:    
-        flash(f"Unfortunately, it is not authorized to book more than {maxBookingPlaces} places")
-        logging.warning(f"Club attempted to book more than the allowed {maxBookingPlaces} places.")
+    else:
+        competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - int(club['points'])
+        availablePoints = club['points']
+        club['points'] = 0        
+        flash(f"Not enough available points to book the places. You were only able to afford {availablePoints}")
+        logging.warning(f"Club {club['name']} attempted to book {placesRequired} places, but only has {club['points']} points.")
+        
     return render_template('welcome.html', club=club, competitions=competitions)
 
 
