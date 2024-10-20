@@ -2,45 +2,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary | GUDLFT Registration</title>
+    <title>Booking for {{competition['name']}} || GUDLFT</title>
 </head>
 <body>
-        <h2>Welcome, {{club['email']}} </h2><a href="{{url_for('logout')}}">Logout</a>
-
-    {% with messages = get_flashed_messages()%}
-    {% if messages %}
-        <ul>
-       {% for message in messages %}
-            <li>{{message}}</li>
-        {% endfor %}
-       </ul>
-    {% endif%}
-    Points available: {{club['points']}}
-    <h3>Competitions:</h3>
-    <ul>
-        {% for comp in competitions%}
-        <li>
-            {{comp['name']}}<br />
-            Date: {{comp['date']}}</br>
-            Number of Places: {{comp['numberOfPlaces']}}
-            {%if comp['numberOfPlaces']|int >0%}
-            <a href="{{ url_for('book',competition=comp['name'],club=club['name']) }}">Book Places</a>
-            {%endif%}
-        </li>
-        <hr />
-        {% endfor %}
-    </ul>
-    <h3>Other clubs:</h3>
-    <ul>
-        {% for other_club in clubs%}
-        <li class="club-item">
-            {{other_club['name']}}<br />
-            Points available: {{other_club['points']}}
-        </li>
-        <hr />
-        {% endfor %}
-    </ul>
-    {%endwith%}
-
+    <h2>{{competition['name']}}</h2>
+    Places available: {{competition['numberOfPlaces']}}
+    <form action="/purchasePlaces" method="post">
+        <input type="hidden" name="club" value="{{club['name']}}">
+        <input type="hidden" name="competition" value="{{competition['name']}}">
+        <label for="places">How many places?</label><input type="number" name="places" id=""/>
+        <button type="submit">Book</button>
+    </form>
 </body>
 </html>
