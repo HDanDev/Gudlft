@@ -256,3 +256,36 @@
 2024-10-27 23:51:28,202 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
 2024-10-27 23:51:28,204 Club Test Club 2 booked 10 places in Test Competition Future. Points used: 10
 2024-10-27 23:51:28,204 Club Test Club 2 attempted to book 10 places, but only has 0 points.
+2024-10-27 23:59:46,923 Club attempted to book more than the allowed 12 places.
+2024-10-27 23:59:46,927 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 23:59:46,927 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 23:59:46,929 Club Test Club 2 booked 10 places in Test Competition Future. Points used: 10
+2024-10-27 23:59:46,929 Club Test Club 2 attempted to book 10 places, but only has 0 points.
+2024-10-28 00:02:27,246 Club attempted to book more than the allowed 12 places.
+2024-10-28 00:02:27,253 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-28 00:02:27,253 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-28 00:02:27,257 Club Test Club 2 booked 10 places in Test Competition Future. Points used: 10
+2024-10-28 00:02:27,257 Club Test Club 2 attempted to book 10 places, but only has 0 points.
+2024-10-28 00:14:07,834 Club Test club booked 3 places in Test competition. Points used: 3
+2024-10-28 00:14:07,835 Club Test club booked 3 places in Test competition. Points used: 3
+2024-10-28 00:14:07,864 Club Test club booked 3 places in Test competition. Points used: 3
+2024-10-28 00:14:07,864 Club Test club booked 3 places in Test competition. Points used: 3
+2024-10-28 00:14:26,034 Club attempted to book more than the allowed 12 places.
+2024-10-28 00:14:26,060 Club Test club booked 11 places in Test competition. Points used: 11
+2024-10-28 00:14:26,061 Club Test club booked 11 places in Test competition. Points used: 11
+2024-10-28 00:14:26,063 Club Test club booked 12 places in Test competition. Points used: 12
+2024-10-28 00:14:26,063 Club Test club booked 12 places in Test competition. Points used: 12
+2024-10-28 00:14:47,282 Club Test club booked 11 places in Test competition. Points used: 11
+2024-10-28 00:14:47,282 Club Test club attempted to book 11 places, but only has 0 points.
+2024-10-28 00:14:47,305 Club Test club booked 5 places in Test competition. Points used: 5
+2024-10-28 00:14:47,305 Club Test club booked 5 places in Test competition. Points used: 5
+2024-10-28 00:14:47,308 Club Test club booked 9 places in Test competition. Points used: 9
+2024-10-28 00:14:47,309 Club Test club booked 9 places in Test competition. Points used: 9
+2024-10-28 00:15:00,361 Login attempt with unknown email: unknown@nonexistent.com
+2024-10-28 00:15:00,433 Login attempt with unknown email: unknown@nonexistent.com
+2024-10-28 00:15:28,618 Club Club One booked 5 places in Competition One. Points used: 5
+2024-10-28 00:15:28,619 Club Club One booked 5 places in Competition One. Points used: 5
+2024-10-28 00:15:28,644 Club Club Two booked 2 places in Competition Two. Points used: 2
+2024-10-28 00:15:28,644 Club Club Two booked 2 places in Competition Two. Points used: 2
+2024-10-28 00:15:28,646 Club Club Three booked 7 places in Competition One. Points used: 7
+2024-10-28 00:15:28,647 Club Club Three booked 7 places in Competition One. Points used: 7
