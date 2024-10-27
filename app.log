@@ -236,3 +236,23 @@
 2024-10-27 15:22:11,910 Club Test club booked 3 places in Test competition. Points used: 3
 2024-10-27 15:22:11,929 Club Test club booked 3 places in Test competition. Points used: 3
 2024-10-27 15:22:11,930 Club Test club booked 3 places in Test competition. Points used: 3
+2024-10-27 22:30:03,177 Club attempted to book more than the allowed 12 places.
+2024-10-27 22:30:03,203 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 22:30:03,203 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 22:30:03,205 Club Test Club 2 booked 10 places in Test Competition Future. Points used: 10
+2024-10-27 22:30:03,205 Club Test Club 2 attempted to book 10 places, but only has 0 points.
+2024-10-27 22:37:18,515 Club attempted to book more than the allowed 12 places.
+2024-10-27 22:37:18,522 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 22:37:18,522 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 22:37:18,524 Club Test Club 2 booked 10 places in Test Competition Future. Points used: 10
+2024-10-27 22:37:18,524 Club Test Club 2 attempted to book 10 places, but only has 0 points.
+2024-10-27 22:38:37,950 Club attempted to book more than the allowed 12 places.
+2024-10-27 22:38:37,956 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 22:38:37,957 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 22:38:37,959 Club Test Club 2 booked 10 places in Test Competition Future. Points used: 10
+2024-10-27 22:38:37,959 Club Test Club 2 attempted to book 10 places, but only has 0 points.
+2024-10-27 23:51:28,177 Club attempted to book more than the allowed 12 places.
+2024-10-27 23:51:28,202 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 23:51:28,202 Club Test Club 1 booked 5 places in Test Competition Future. Points used: 5
+2024-10-27 23:51:28,204 Club Test Club 2 booked 10 places in Test Competition Future. Points used: 10
+2024-10-27 23:51:28,204 Club Test Club 2 attempted to book 10 places, but only has 0 points.
