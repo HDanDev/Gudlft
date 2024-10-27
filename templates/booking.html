@@ -10,8 +10,21 @@
     <form action="/purchasePlaces" method="post">
         <input type="hidden" name="club" value="{{club['name']}}">
         <input type="hidden" name="competition" value="{{competition['name']}}">
-        <label for="places">How many places?</label><input type="number" name="places" id=""/>
+        <label for="places">How many places?</label><input type="number" name="places" id="places" min="1" max="{{ min(club['points'], maxBookingPlaces) }}" required/>
         <button type="submit">Book</button>
     </form>
+    <script>        
+        function validateBooking() {
+            const maxPlaces = {{ club['points'] }};
+            const placesInput = document.getElementById('places');
+            const placesValue = parseInt(placesInput.value, 10);
+
+            if (placesValue > maxPlaces || placesValue < 1) {
+                alert(`You can only book between 1 and ${maxPlaces} places.`);
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>
