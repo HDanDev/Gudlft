@@ -25,10 +25,6 @@ maxBookingPlaces= 12
 
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
 
-logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
-
-logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(message)s')
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -70,15 +66,16 @@ def purchasePlaces():
         flash('Error: Cannot book a place on a past competition.')
         return render_template('welcome.html', club=club, competitions=competitions)
     
-    placesRequired = int(request.form['places'])
-    
+    placesRequired = int(request.form['places'])    
 
     if placesRequired <= maxBookingPlaces:
-        competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - placesRequired
-        club['points'] = int(club['points']) - placesRequired
-        flash(f'Great-booking complete!')
         logging.info(f"Club {club['name']} booked {placesRequired} places in {competition['name']}. Points used: {placesRequired}")
+
         if int(club['points']) >= placesRequired:
+            competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - placesRequired
+            club['points'] = int(club['points']) - placesRequired
+            flash(f'Great-booking complete!')
+            logging.info(f"Club {club['name']} booked {placesRequired} places in {competition['name']}. Points used: {placesRequired}")
         else:
             competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - int(club['points'])
             availablePoints = club['points']
@@ -88,6 +85,7 @@ def purchasePlaces():
     else:    
         flash(f"Unfortunately, it is not authorized to book more than {maxBookingPlaces} places")
         logging.warning(f"Club attempted to book more than the allowed {maxBookingPlaces} places.")
+
     return render_template('welcome.html', club=club, competitions=competitions)
 
 
