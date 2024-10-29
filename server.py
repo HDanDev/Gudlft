@@ -58,18 +58,22 @@ def showSummary():
 def book(competition, club):
     foundClub = [c for c in clubs if c['name'] == club][0]
     foundCompetition = [c for c in competitions if c['name'] == competition][0]
+    max_places = min(int(foundClub['points']), maxBookingPlaces)
+
     if foundClub and foundCompetition:
         return render_template(
             'booking.html',
             club=foundClub,
             competition=foundCompetition,
-            maxBookingPlaces=maxBookingPlaces
+            max_places=max_places
             )
     else:
         flash("Something went wrong-please try again")
         return render_template(
             'welcome.html',
-            club=club, competitions=competitions
+            club=club,
+            competitions=competitions,
+            max_places=max_places
             )
 
 
